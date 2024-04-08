@@ -1,0 +1,27 @@
+# permissions for end users to view scales.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: scale-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: deploy-scale
+    app.kubernetes.io/part-of: deploy-scale
+    app.kubernetes.io/managed-by: kustomize
+  name: scale-viewer-role
+rules:
+- apiGroups:
+  - api.tanlay.com
+  resources:
+  - scales
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - api.tanlay.com
+  resources:
+  - scales/status
+  verbs:
+  - get

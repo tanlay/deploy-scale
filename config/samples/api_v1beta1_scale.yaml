@@ -1,0 +1,17 @@
+apiVersion: api.tanlay.com/v1beta1
+kind: Scale
+metadata:
+  labels:
+    app.kubernetes.io/name: scale
+    app.kubernetes.io/instance: scale-sample
+    app.kubernetes.io/part-of: deploy-scale
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: deploy-scale
+  name: scale-sample
+spec:
+    start: 13
+    end: 19
+    replicas: 4
+    deployments:
+    - name: abc
+      namespace: default

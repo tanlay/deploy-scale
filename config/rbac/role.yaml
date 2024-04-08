@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - api.tanlay.com
+  resources:
+  - scales
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - api.tanlay.com
+  resources:
+  - scales/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - api.tanlay.com
+  resources:
+  - scales/status
+  verbs:
+  - get
+  - patch
+  - update
